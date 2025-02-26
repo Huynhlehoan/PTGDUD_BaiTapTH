@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.container{
+    text-align: center;
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 26px;
+}
+table{
+    margin: 20px;
+    
+}
+h1{
+    color: palevioletred;
+}
+button{
+    background-color: palevioletred;
+    color: white;
+    font-weight: bold;
+}
+input,label{
+    margin-top: 10px;
+}
+th{
+    background-color: palevioletred;
+}
