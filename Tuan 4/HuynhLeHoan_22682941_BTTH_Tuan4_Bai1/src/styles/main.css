@@ -1,0 +1,154 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.container-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    background-color: #fff;
+    border-bottom: 2px solid #f0f0f0;
+    margin-bottom: 40px;
+}
+
+.logo {
+    width: 130px; /* Giả sử logo là ảnh */
+}
+
+.search-bar {
+    width: 250px;
+    padding: 5px;
+}
+h4{
+    margin-bottom: 15px;
+}
+.btn-recipe-box {
+    padding: 8px 15px;
+    background: #ff4081;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.menu li {
+   display: inline-block;
+    list-style: none;
+    margin-left: 10px;
+    
+}
+ .menu li a{
+    text-decoration: none;
+    color: gray;
+}
+.content {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.filters {
+    width: 250px;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+.apply-btn {
+    width: 100%;
+    background: #ff4081;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.filters .type-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Chia thành 2 cột */
+    gap: 8px; /* Khoảng cách giữa các ô */
+}
+
+.filters label {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Khoảng cách giữa checkbox và chữ */
+    cursor: pointer;
+}
+
+
+.tags span {
+    display: inline-block;
+    background: #f0f0f0;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+#tag1{
+    background-color: rgb(243, 195, 213) ;
+    color: #ff4080f3;
+    font-weight: bold;
+}
+#tag2{
+    background-color: #d9b4ec ;
+    color:#b035ed ;
+    font-weight: bold;
+}
+#tag3{
+    background-color: rgb(243, 195, 213) ;
+    color: #ff4081;
+    font-weight: bold;
+}
+#tag4{
+    background-color: #c8f8f8;
+    color: #33ecec;
+    font-weight: bold;
+}
+
+
+.footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    background: #222;
+    color: white;
+    padding: 20px;
+    width: 100%;
+}
+ul li{
+    list-style: none;
+    padding: 10px;
+}
+ul li a{
+    text-decoration: none;
+    color: gray;
+    margin-top: 10px;
+    padding: 10px;
+}
+#email{
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+}
+#send{
+    width: 70px;
+    margin-left: 10px;
+    height: 40px;
+    background: #ff4081;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
