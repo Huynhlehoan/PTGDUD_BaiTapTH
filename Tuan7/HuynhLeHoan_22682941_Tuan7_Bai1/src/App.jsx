@@ -27,9 +27,18 @@ import ava5 from './assets/Lab_05/Avatar (5).png'
 import ava6 from './assets/Lab_05/Avatar.png'
 
 import { Link } from 'react-router-dom'
+import DataTable from 'react-data-table-component';
 function App() {
 
-
+  const columns = [
+    { name: 'Customer Name', selector: row => row.customerName },
+    { name: 'Company', selector: row => row.company },
+    { name: 'Order Value', selector: row => row.orderValue },
+    { name: 'Order Date', selector: row => row.orderDate },
+    { name: 'Status', selector: row => row.status },
+    { name: 'Action', cell: () => <button>Edit</button> },
+  ];
+  const dummyData = [];
   return (
     <div className='container'>
        <div class="header flex space-x-3">
@@ -123,12 +132,12 @@ function App() {
     <div className='flex gap-x-2 mt-2 mb-2'>
       <img src={logo10} alt="" />
       <h2 className=' font-bold text-xl '>Detailed Report</h2>
-       
         </div>
-    <div className="overflow-x-auto bg-white shadow-md rounded-lg p-4">
-      <table className="w-full border-collapse">
+        
+    {/* <div className="overflow-x-auto bg-white shadow-md rounded-lg p-4">
+      <table className="w-full border-collapse"> */}
         {/* Header */}
-        <thead>
+        {/* <thead>
           <tr className="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
             <th className="py-3 px-6">
               <input type="checkbox" className="w-4 h-4" />
@@ -141,11 +150,11 @@ function App() {
             <th className="py-3 px-6"></th>
           </tr>
         </thead>
-      
+       */}
         {/* Body */}
-        <tbody className="text-gray-700 text-sm">
+        {/* <tbody className="text-gray-700 text-sm"> */}
           {/* Row 1 */}
-          <tr className="border-b border-gray-200 hover:bg-gray-50">
+          {/* <tr className="border-b border-gray-200 hover:bg-gray-50">
             <td className="py-3 px-6"><input type="checkbox" className="w-4 h-4" /></td>
             <td className="py-3 px-6 flex items-center space-x-3">
               <img src={ava6} className="w-8 h-8 rounded-full" />
@@ -158,10 +167,10 @@ function App() {
               <span className="bg-blue-100 text-blue-600 py-1 px-3 rounded-full text-xs font-semibold">New</span>
             </td>
             <td className="py-3 px-6 text-gray-400 hover:text-gray-600 cursor-pointer">✏️</td>
-          </tr>
+          </tr> */}
 
           {/* Row 2 */}
-          <tr className="border-b border-gray-200 hover:bg-gray-50">
+          {/* <tr className="border-b border-gray-200 hover:bg-gray-50">
             <td className="py-3 px-6"><input type="checkbox" className="w-4 h-4" /></td>
             <td className="py-3 px-6 flex items-center space-x-3">
               <img src={ava4} className="w-8 h-8 rounded-full" />
@@ -174,10 +183,10 @@ function App() {
               <span className="bg-blue-100 text-blue-600 py-1 px-3 rounded-full text-xs font-semibold">New</span>
             </td>
             <td className="py-3 px-6 text-gray-400 hover:text-gray-600 cursor-pointer">✏️</td>
-          </tr>
+          </tr> */}
 
           {/* Row 3 */}
-          <tr className="border-b border-gray-200 hover:bg-gray-50">
+          {/* <tr className="border-b border-gray-200 hover:bg-gray-50">
             <td className="py-3 px-6"><input type="checkbox" className="w-4 h-4" /></td>
             <td className="py-3 px-6 flex items-center space-x-3">
               <img src={ava1} className="w-8 h-8 rounded-full" />
@@ -190,10 +199,10 @@ function App() {
               <span className="bg-yellow-100 text-yellow-600 py-1 px-3 rounded-full text-xs font-semibold">In-progress</span>
             </td>
             <td className="py-3 px-6 text-gray-400 hover:text-gray-600 cursor-pointer">✏️</td>
-          </tr>
+          </tr> */}
 
           {/* Row 4 */}
-          <tr className="border-b border-gray-200 hover:bg-gray-50">
+          {/* <tr className="border-b border-gray-200 hover:bg-gray-50">
             <td className="py-3 px-6"><input type="checkbox" className="w-4 h-4" /></td>
             <td className="py-3 px-6 flex items-center space-x-3">
               <img src={ava2} className="w-8 h-8 rounded-full" />
@@ -206,10 +215,10 @@ function App() {
               <span className="bg-yellow-100 text-yellow-600 py-1 px-3 rounded-full text-xs font-semibold">In-progress</span>
             </td>
             <td className="py-3 px-6 text-gray-400 hover:text-gray-600 cursor-pointer">✏️</td>
-          </tr>
+          </tr> */}
 
           {/* Row 5 */}
-          <tr className="border-b border-gray-200 hover:bg-gray-50">
+          {/* <tr className="border-b border-gray-200 hover:bg-gray-50">
             <td className="py-3 px-6"><input type="checkbox" className="w-4 h-4" /></td>
             <td className="py-3 px-6 flex items-center space-x-3">
               <img src={ava3} className="w-8 h-8 rounded-full" />
@@ -222,9 +231,9 @@ function App() {
               <span className="bg-green-100 text-green-600 py-1 px-3 rounded-full text-xs font-semibold">Completed</span>
             </td>
             <td className="py-3 px-6 text-gray-400 hover:text-gray-600 cursor-pointer">✏️</td>
-          </tr>
+          </tr> */}
             {/* Row 6 */}
-            <tr className="border-b border-gray-200 hover:bg-gray-50">
+            {/* <tr className="border-b border-gray-200 hover:bg-gray-50">
             <td className="py-3 px-6"><input type="checkbox" className="w-4 h-4" /></td>
             <td className="py-3 px-6 flex items-center space-x-3">
               <img src={ava5} className="w-8 h-8 rounded-full" />
@@ -240,8 +249,15 @@ function App() {
           </tr>
         </tbody>
       </table>
+    </div> */}
+    <div className="max-w-5xl mx-auto p-4">
+      <DataTable
+        title="Orders"
+        columns={columns}
+        data={dummyData}
+        pagination
+      />
     </div>
-   
       
       </div>
   
