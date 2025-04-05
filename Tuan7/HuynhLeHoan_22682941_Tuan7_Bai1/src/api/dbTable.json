@@ -1,0 +1,94 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "customerName": "Elizabeth Lee",
+      "avatar": "https://res.cloudinary.com/dxfbutjyu/image/upload/v1743782849/Avatar_l8elp9.png",
+      "company": "AvatarSystems",
+      "orderValue": 359,
+      "orderDate": "10/07/2023",
+      "status": "New"
+    },
+    {
+      "id": 2,
+      "customerName": "Carlos Garcia",
+      "avatar": "https://res.cloudinary.com/dxfbutjyu/image/upload/v1743782850/Avatar_4_sqnlgt.png",
+      "company": "SmoozeShift",
+      "orderValue": 747,
+      "orderDate": "24/07/2023",
+      "status": "New"
+    },
+    {
+      "id": 3,
+      "customerName": "Elizabeth Bailey",
+      "avatar": "https://res.cloudinary.com/dxfbutjyu/image/upload/v1743782849/Avatar_5_zifhoi.png",
+      "company": "Prime Time Telecom",
+      "orderValue": 564,
+      "orderDate": "08/08/2023",
+      "status": "In-progress"
+    },
+    {
+      "id": 4,
+      "customerName": "Ryan Brown",
+      "avatar": "https://res.cloudinary.com/dxfbutjyu/image/upload/v1743782849/Avatar_1_qos7ap.png",
+      "company": "OmniTech Corporation",
+      "orderValue": 541,
+      "orderDate": "31/08/2023",
+      "status": "In-progress"
+    },
+    {
+      "id": 5,
+      "customerName": "Ryan Young",
+      "avatar": "https://res.cloudinary.com/dxfbutjyu/image/upload/v1743782849/Avatar_3_cdly7h.png",
+      "company": "DataStream Inc.",
+      "orderValue": 769,
+      "orderDate": "01/05/2023",
+      "status": "Completed"
+    },
+    {
+      "id": 6,
+      "customerName": "Hailey Adams",
+      "avatar": "https://res.cloudinary.com/dxfbutjyu/image/upload/v1743782849/Avatar_2_qlwgra.png",
+      "company": "FlowRush",
+      "orderValue": 922,
+      "orderDate": "10/06/2023",
+      "status": "Completed"
+    },
+    {
+      "id": 7,
+      "customerName": "Customer 7",
+      "avatar": "https://res.cloudinary.com/demo/image/upload/v1712300000/customer_7.jpg",
+      "company": "Company 7",
+      "orderValue": 700,
+      "orderDate": "07/09/2023",
+      "status": "In-progress"
+    },
+    {
+      "id": 8,
+      "customerName": "Customer 8",
+      "avatar": "https://res.cloudinary.com/demo/image/upload/v1712300000/customer_8.jpg",
+      "company": "Company 8",
+      "orderValue": 800,
+      "orderDate": "08/09/2023",
+      "status": "Completed"
+    },
+    {
+      "id": 9,
+      "customerName": "Customer 9",
+      "avatar": "https://res.cloudinary.com/demo/image/upload/v1712300000/customer_9.jpg",
+      "company": "Company 9",
+      "orderValue": 900,
+      "orderDate": "09/09/2023",
+      "status": "New"
+    },
+    {
+      "id": 10,
+      "customerName": "Customer 10",
+      "avatar": "https://res.cloudinary.com/demo/image/upload/v1712300000/customer_10.jpg",
+      "company": "Company 10",
+      "orderValue": 1000,
+      "orderDate": "010/09/2023",
+      "status": "In-progress"
+    }
+  ]
+}
