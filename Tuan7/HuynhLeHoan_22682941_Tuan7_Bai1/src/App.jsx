@@ -28,18 +28,20 @@ import ava6 from './assets/Lab_05/Avatar.png'
 
 import { Link } from 'react-router-dom'
 import DataTable from 'react-data-table-component';
-function App() {
+const columns = ["Customer Name", "Company", "Order Value", "Order Date", "Status", ""];
 
-  const columns = [
-    { name: 'Customer Name', selector: row => row.customerName },
-    { name: 'Company', selector: row => row.company },
-    { name: 'Order Value', selector: row => row.orderValue },
-    { name: 'Order Date', selector: row => row.orderDate },
-    { name: 'Status', selector: row => row.status },
-    { name: 'Action', cell: () => <button>Edit</button> },
-  ];
-  const dummyData = [];
+const dummyData = Array.from({ length: 5 }, () => ({
+  customerName: "",
+  company: "",
+  orderValue: "",
+  orderDate: "",
+  status: ""
+}));
+function App() {
+  const [data, setData] = useState(dummyData);
+
   return (
+    
     <div className='container'>
        <div class="header flex space-x-3">
        
@@ -133,131 +135,46 @@ function App() {
       <img src={logo10} alt="" />
       <h2 className=' font-bold text-xl '>Detailed Report</h2>
         </div>
-        
-    {/* <div className="overflow-x-auto bg-white shadow-md rounded-lg p-4">
-      <table className="w-full border-collapse"> */}
-        {/* Header */}
-        {/* <thead>
-          <tr className="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
-            <th className="py-3 px-6">
-              <input type="checkbox" className="w-4 h-4" />
-            </th>
-            <th className="py-3 px-6 text-left">Customer Name</th>
-            <th className="py-3 px-6 text-left">Company</th>
-            <th className="py-3 px-6 text-left">Order Value</th>
-            <th className="py-3 px-6 text-left">Order Date</th>
-            <th className="py-3 px-6 text-left">Status</th>
-            <th className="py-3 px-6"></th>
+
+    <div className="p-5">
+ 
+      <table className="w-full border">
+        <thead>
+          <tr className="bg-gray-100">
+            <th className="p-2"><input type="checkbox" /></th>
+            {columns.map((col, idx) => (
+              <th key={idx} className="p-2 text-left">{col}</th>
+            ))}
           </tr>
         </thead>
-       */}
-        {/* Body */}
-        {/* <tbody className="text-gray-700 text-sm"> */}
-          {/* Row 1 */}
-          {/* <tr className="border-b border-gray-200 hover:bg-gray-50">
-            <td className="py-3 px-6"><input type="checkbox" className="w-4 h-4" /></td>
-            <td className="py-3 px-6 flex items-center space-x-3">
-              <img src={ava6} className="w-8 h-8 rounded-full" />
-              <span className="font-semibold">Elizabeth Lee</span>
-            </td>
-            <td className="py-3 px-6">AvatarSystems</td>
-            <td className="py-3 px-6">$359</td>
-            <td className="py-3 px-6">10/07/2023</td>
-            <td className="py-3 px-6">
-              <span className="bg-blue-100 text-blue-600 py-1 px-3 rounded-full text-xs font-semibold">New</span>
-            </td>
-            <td className="py-3 px-6 text-gray-400 hover:text-gray-600 cursor-pointer">✏️</td>
-          </tr> */}
-
-          {/* Row 2 */}
-          {/* <tr className="border-b border-gray-200 hover:bg-gray-50">
-            <td className="py-3 px-6"><input type="checkbox" className="w-4 h-4" /></td>
-            <td className="py-3 px-6 flex items-center space-x-3">
-              <img src={ava4} className="w-8 h-8 rounded-full" />
-              <span className="font-semibold">Carlos Garcia</span>
-            </td>
-            <td className="py-3 px-6">SmoozeShift</td>
-            <td className="py-3 px-6">$747</td>
-            <td className="py-3 px-6">24/07/2023</td>
-            <td className="py-3 px-6">
-              <span className="bg-blue-100 text-blue-600 py-1 px-3 rounded-full text-xs font-semibold">New</span>
-            </td>
-            <td className="py-3 px-6 text-gray-400 hover:text-gray-600 cursor-pointer">✏️</td>
-          </tr> */}
-
-          {/* Row 3 */}
-          {/* <tr className="border-b border-gray-200 hover:bg-gray-50">
-            <td className="py-3 px-6"><input type="checkbox" className="w-4 h-4" /></td>
-            <td className="py-3 px-6 flex items-center space-x-3">
-              <img src={ava1} className="w-8 h-8 rounded-full" />
-              <span className="font-semibold">Elizabeth Bailey</span>
-            </td>
-            <td className="py-3 px-6">Prime Time Telecom</td>
-            <td className="py-3 px-6">$564</td>
-            <td className="py-3 px-6">08/08/2023</td>
-            <td className="py-3 px-6">
-              <span className="bg-yellow-100 text-yellow-600 py-1 px-3 rounded-full text-xs font-semibold">In-progress</span>
-            </td>
-            <td className="py-3 px-6 text-gray-400 hover:text-gray-600 cursor-pointer">✏️</td>
-          </tr> */}
-
-          {/* Row 4 */}
-          {/* <tr className="border-b border-gray-200 hover:bg-gray-50">
-            <td className="py-3 px-6"><input type="checkbox" className="w-4 h-4" /></td>
-            <td className="py-3 px-6 flex items-center space-x-3">
-              <img src={ava2} className="w-8 h-8 rounded-full" />
-              <span className="font-semibold">Ryan Brown</span>
-            </td>
-            <td className="py-3 px-6">OmniTech Corporation</td>
-            <td className="py-3 px-6">$541</td>
-            <td className="py-3 px-6">31/08/2023</td>
-            <td className="py-3 px-6">
-              <span className="bg-yellow-100 text-yellow-600 py-1 px-3 rounded-full text-xs font-semibold">In-progress</span>
-            </td>
-            <td className="py-3 px-6 text-gray-400 hover:text-gray-600 cursor-pointer">✏️</td>
-          </tr> */}
-
-          {/* Row 5 */}
-          {/* <tr className="border-b border-gray-200 hover:bg-gray-50">
-            <td className="py-3 px-6"><input type="checkbox" className="w-4 h-4" /></td>
-            <td className="py-3 px-6 flex items-center space-x-3">
-              <img src={ava3} className="w-8 h-8 rounded-full" />
-              <span className="font-semibold">Ryan Young</span>
-            </td>
-            <td className="py-3 px-6">DataStream Inc.</td>
-            <td className="py-3 px-6">$769</td>
-            <td className="py-3 px-6">01/05/2023</td>
-            <td className="py-3 px-6">
-              <span className="bg-green-100 text-green-600 py-1 px-3 rounded-full text-xs font-semibold">Completed</span>
-            </td>
-            <td className="py-3 px-6 text-gray-400 hover:text-gray-600 cursor-pointer">✏️</td>
-          </tr> */}
-            {/* Row 6 */}
-            {/* <tr className="border-b border-gray-200 hover:bg-gray-50">
-            <td className="py-3 px-6"><input type="checkbox" className="w-4 h-4" /></td>
-            <td className="py-3 px-6 flex items-center space-x-3">
-              <img src={ava5} className="w-8 h-8 rounded-full" />
-              <span className="font-semibold">Hailey Adams</span>
-            </td>
-            <td className="py-3 px-6">FlowRush</td>
-            <td className="py-3 px-6">$922</td>
-            <td className="py-3 px-6">10/06/2023</td>
-            <td className="py-3 px-6">
-              <span className="bg-green-100 text-green-600 py-1 px-3 rounded-full text-xs font-semibold">Completed</span>
-            </td>
-            <td className="py-3 px-6 text-gray-400 hover:text-gray-600 cursor-pointer">✏️</td>
-          </tr>
+        <tbody>
+          {data.map((row, idx) => (
+            <tr key={idx} className="border-t">
+              <td className="p-2"><input type="checkbox" /></td>
+              <td className="p-2">-</td>
+              <td className="p-2">-</td>
+              <td className="p-2">-</td>
+              <td className="p-2">-</td>
+              <td className="p-2">
+                {row.status ? (
+                  <span className={`px-2 py-1 text-xs rounded 
+                    ${row.status === 'New' && 'bg-blue-100 text-blue-600'}`}
+                  >
+                    {row.status}
+                  </span>
+                ) : "-"}
+              </td>
+              <td className="p-2">
+                <button className="text-gray-500 hover:text-black">
+                  ✏️
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
-    </div> */}
-    <div className="max-w-5xl mx-auto p-4">
-      <DataTable
-        title="Orders"
-        columns={columns}
-        data={dummyData}
-        pagination
-      />
     </div>
+
       
       </div>
   
