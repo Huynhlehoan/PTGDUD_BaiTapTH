@@ -87,7 +87,7 @@
       "avatar": "https://res.cloudinary.com/demo/image/upload/v1712300000/customer_10.jpg",
       "company": "Company 10",
       "orderValue": 1000,
-      "orderDate": "010/09/2023",
+      "orderDate": "10/09/2023",
       "status": "In-progress"
     }
   ]

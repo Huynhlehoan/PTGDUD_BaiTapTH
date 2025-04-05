@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -28,17 +28,58 @@ import ava6 from './assets/Lab_05/Avatar.png'
 
 import { Link } from 'react-router-dom'
 import DataTable from 'react-data-table-component';
-const columns = ["Customer Name", "Company", "Order Value", "Order Date", "Status", ""];
+import axios from 'axios';
 
-const dummyData = Array.from({ length: 5 }, () => ({
-  customerName: "",
-  company: "",
-  orderValue: "",
-  orderDate: "",
-  status: ""
-}));
+
+
+
 function App() {
-  const [data, setData] = useState(dummyData);
+  useEffect(() => {
+    axios.get('http://localhost:3002/customers')
+      .then(response => {
+        setData(response.data); 
+      })
+      .catch(error => {
+        console.error("Error loading data:", error); 
+        console.log(error.response);  
+      });
+  }, []);
+  
+
+ const columns = [
+  {
+    name: 'Customer Name',
+    selector: row => row.customerName,
+    sortable: true,
+  },
+  { 
+    name: 'Company', 
+    selector: row => row.company, 
+    sortable: true 
+  },
+  { 
+    name: 'Order Value', 
+    selector: row => `${row.orderValue}$`, 
+    sortable: true 
+  },
+  { 
+    name: 'Order Date', 
+    selector: row => row.orderDate, 
+    sortable: true 
+  },
+  { 
+    name: 'Status', 
+    selector: row => row.status, 
+    sortable: true 
+  },
+  {
+    name: 'Action',
+    cell: row => <button>Edit</button>, 
+  },
+];
+
+  const [data, setData] = useState([]);
+
 
   return (
     
@@ -137,42 +178,15 @@ function App() {
         </div>
 
     <div className="p-5">
- 
-      <table className="w-full border">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="p-2"><input type="checkbox" /></th>
-            {columns.map((col, idx) => (
-              <th key={idx} className="p-2 text-left">{col}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((row, idx) => (
-            <tr key={idx} className="border-t">
-              <td className="p-2"><input type="checkbox" /></td>
-              <td className="p-2">-</td>
-              <td className="p-2">-</td>
-              <td className="p-2">-</td>
-              <td className="p-2">-</td>
-              <td className="p-2">
-                {row.status ? (
-                  <span className={`px-2 py-1 text-xs rounded 
-                    ${row.status === 'New' && 'bg-blue-100 text-blue-600'}`}
-                  >
-                    {row.status}
-                  </span>
-                ) : "-"}
-              </td>
-              <td className="p-2">
-                <button className="text-gray-500 hover:text-black">
-                  ✏️
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <DataTable
+            title="Orders"
+            columns={columns}
+           
+            pagination
+            noDataComponent="Không có dữ liệu để hiển thị"
+            data={data} // Truyền data từ state lên DataTable
+         
+/>
     </div>
 
       
