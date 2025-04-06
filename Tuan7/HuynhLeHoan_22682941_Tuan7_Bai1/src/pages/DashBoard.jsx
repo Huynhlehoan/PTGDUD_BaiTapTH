@@ -1,6 +1,8 @@
 // pages/Dashboard.jsx
 import React, { useState, useEffect } from 'react';
-import logo1 from '../assets/Lab_05/Squares four 1.png';
+import logo1 from '../assets/Lab_05/File text 1.png';
+import logo2 from '../assets/Lab_05/Download.png';
+import logo3 from '../assets/Lab_05/Move up.png';
 import CustomDataTable from '../components/DataTable';
 import EditUserModal from '../components/EditUserModal';
 import AddUserModal from '../components/AddUserModal';
@@ -48,8 +50,17 @@ function Dashboard() {
         >
           Add User
         </button>
-        <button className="border border-pink-600 text-pink-600 px-3 py-2 rounded">Import</button>
-        <button className="border border-pink-600 text-pink-600 px-3 py-2 rounded">Export</button>
+        <div className="flex gap-2">
+  <button className="flex items-center gap-2 border border-pink-600 text-pink-600 px-3 py-2 rounded">
+    <img src={logo2} alt="Import Icon" className="w-4 h-4" />
+    Import
+  </button>
+  <button className="flex items-center gap-2 border border-pink-600 text-pink-600 px-3 py-2 rounded">
+    <img src={logo3} alt="Export Icon" className="w-4 h-4" />
+    Export
+  </button>
+</div>
+
       </div>
       {data.length > 0 ? (
         <CustomDataTable data={data} onEdit={handleEditClick} />

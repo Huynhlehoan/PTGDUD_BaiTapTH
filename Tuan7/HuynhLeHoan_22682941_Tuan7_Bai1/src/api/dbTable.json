@@ -3,6 +3,7 @@
     {
       "customerName": "Elizabeth Lee",
       "company": "AvatarSystems",
+      "avatar": "https://res.cloudinary.com/dxfbutjyu/image/upload/v1743782850/Avatar_4_sqnlgt.png",
       "orderValue": "360",
       "orderDate": "10/07/2023",
       "status": "New",
