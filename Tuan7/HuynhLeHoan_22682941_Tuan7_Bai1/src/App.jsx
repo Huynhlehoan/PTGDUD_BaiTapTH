@@ -26,7 +26,7 @@ import ava4 from './assets/Lab_05/Avatar (4).png'
 import ava5 from './assets/Lab_05/Avatar (5).png'
 import ava6 from './assets/Lab_05/Avatar.png'
 
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import DataTable from 'react-data-table-component';
 import axios from 'axios';
 
@@ -97,29 +97,93 @@ function App() {
         <img src={question} alt="question" className='ava' />
         <img src={avatar1} alt="ava" className='ava' />
         </div>
-  <div class="menu">
-    <div style={{margin:'15px'}} className='flex gap-x-2 bg-pink-500 rounded-lg'>
+    <div className="menu flex flex-col gap-4 p-4 bg-white">
+      {/* Dashboard */}
+      <NavLink 
+        to="/" 
+        className={({ isActive }) => 
+          isActive 
+            ? 'flex items-center gap-x-2 bg-pink-500 text-white font-bold px-3 py-2 rounded-lg' 
+            : 'flex items-center gap-x-2 px-3 py-2'
+        }
+      >
         <img src={logo1} alt="" />
-        <a href="#" style={{color:'white'}}>Dashboard</a></div>
-    <div style={{margin:'15px'}} className='flex gap-x-2'>
+        Dashboard
+      </NavLink>
+
+      {/* Projects */}
+      <NavLink 
+        to="/project" 
+        className={({ isActive }) => 
+          isActive 
+            ? 'flex items-center gap-x-2 bg-pink-500 text-white font-bold px-3 py-2 rounded-lg' 
+            : 'flex items-center gap-x-2 px-3 py-2'
+        }
+      >
         <img src={logo2} alt="" />
-        <a href="#">Project</a></div>
-    <div style={{margin:'15px'}} className='flex gap-x-2'>
+        Projects
+      </NavLink>
+
+      {/* Teams */}
+      <NavLink 
+        to="/teams" 
+        className={({ isActive }) => 
+          isActive 
+            ? 'flex items-center gap-x-2 bg-pink-500 text-white font-bold px-3 py-2 rounded-lg' 
+            : 'flex items-center gap-x-2 px-3 py-2'
+        }
+      >
         <img src={logo3} alt="" />
-        <a href="#">Teams</a></div>
-    <div style={{margin:'15px'}} className='flex gap-x-2'>
+        Teams
+      </NavLink>
+
+      {/* Analytics */}
+      <NavLink 
+        to="/analytics" 
+        className={({ isActive }) => 
+          isActive 
+            ? 'flex items-center gap-x-2 bg-pink-500 text-white font-bold px-3 py-2 rounded-lg' 
+            : 'flex items-center gap-x-2 px-3 py-2'
+        }
+      >
         <img src={logo4} alt="" />
-        <a href="#">Analytics</a></div>
-    <div style={{margin:'15px'}} className='flex gap-x-2'>
+        Analytics
+      </NavLink>
+
+      {/* Messages */}
+      <NavLink 
+        to="/messages" 
+        className={({ isActive }) => 
+          isActive 
+            ? 'flex items-center gap-x-2 bg-pink-500 text-white font-bold px-3 py-2 rounded-lg' 
+            : 'flex items-center gap-x-2 px-3 py-2'
+        }
+      >
         <img src={logo5} alt="" />
-        <a href="#">Messages</a></div>
-    <div style={{margin:'15px'}} className='flex gap-x-2'>
+        Messages
+      </NavLink>
+
+      {/* Integrations */}
+      <NavLink 
+        to="/integrations" 
+        className={({ isActive }) => 
+          isActive 
+            ? 'flex items-center gap-x-2 bg-pink-500 text-white font-bold px-3 py-2 rounded-lg' 
+            : 'flex items-center gap-x-2 px-3 py-2'
+        }
+      >
         <img src={logo6} alt="" />
-        <a href="#">Integrations</a></div>
-        <img src={Group} alt="" className='ms-10' />
-        <button className='bg-white border border-blue-500 rounded-lg px-20 py-1 mt-2 ms-10'>
-          Try now</button>
-      </div>
+        Integrations
+      </NavLink>
+
+    {/* Hình + Button */}
+      <img src={Group} alt="" className="mx-auto mt-4" />
+      <button className="bg-white border border-blue-500 rounded-lg px-10 py-2 mx-auto mt-2">
+        Try now
+      </button>
+</div>
+
+
       
   <div class="content">
     <div className='flex gap-x-2 mt-2 mb-2'>
@@ -221,6 +285,6 @@ function App() {
 
     </div>
   )
-}
+};
 
-export default App
+export default App;
