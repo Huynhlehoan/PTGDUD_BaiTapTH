@@ -10,7 +10,7 @@ function Dashboard() {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
 
-  useEffect(() => {
+  const fetchData = () => {
     axios.get('http://localhost:3002/customers')
       .then(response => {
         setData(response.data);
@@ -18,6 +18,10 @@ function Dashboard() {
       .catch(error => {
         console.error("Error loading data:", error);
       });
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   const handleEditClick = (user) => {
@@ -42,6 +46,7 @@ function Dashboard() {
         isOpen={editModalOpen}
         onClose={() => setEditModalOpen(false)}
         user={selectedUser}
+        onUpdate={fetchData} // gọi lại sau khi update
       />
     </div>
   );
