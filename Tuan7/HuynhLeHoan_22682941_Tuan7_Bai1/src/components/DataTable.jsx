@@ -24,7 +24,7 @@ function CustomDataTable({ data, onEdit }) {
 
   return (
     <DataTable
-      title="Orders"
+    
       columns={columns}
       pagination
       noDataComponent="Không có dữ liệu để hiển thị"

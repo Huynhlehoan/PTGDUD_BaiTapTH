@@ -87,6 +87,14 @@
       "orderValue": 1000,
       "orderDate": "10/09/2023",
       "status": "In-progress"
+    },
+    {
+      "id": "cdb7",
+      "customerName": "HLH",
+      "company": "AvatarSystems",
+      "orderValue": "360",
+      "orderDate": "09/09/2024",
+      "status": "New"
     }
   ]
 }
