@@ -8,17 +8,24 @@ import '../App.css'
 
 function Header() {
   return (
-    <div className="header flex space-x-3">
+    <div className="header flex justify-between items-center px-4  border-b-2">
+    <div className="flex items-center gap-x-4">
       <img className="logo" src={logo} alt="logo" />
-      <h2 className="text-pink-500 font-bold text-2xl">Dashboard</h2>
-      <div className="flex" style={{ marginLeft: '700px' }}>
-        <img src={search} alt="search" className="ava" style={{ marginTop: '5px' }} />
-        <input className="inpSearch px-24 py-1 bg-gray-200 rounded-lg" type="text" placeholder="search..." />
-      </div>
+      <h2 className="text-pink-500 font-bold text-2xl ml-14">Dashboard</h2>
+    </div>
+  
+    <div className="flex ml-auto items-center gap-x-2">
+      <img src={search} alt="search" className="ava mt-1" />
+      <input className="inpSearch px-16 py-1 bg-gray-200 rounded-lg" type="text" placeholder="search..." />
+    </div>
+  
+    <div className="flex items-center gap-x-2">
       <img src={bell} alt="bell" className="ava" />
       <img src={question} alt="question" className="ava" />
       <img src={avatar1} alt="avatar" className="ava" />
     </div>
+  </div>
+  
   );
 }
 

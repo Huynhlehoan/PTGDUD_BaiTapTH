@@ -9,7 +9,7 @@ import Group from '../assets/Lab_05/Group.png';
 
 function Sidebar() {
   return (
-    <div className="menu flex flex-col gap-4 p-4 bg-white">
+    <div className="menu flex flex-col gap-4 p-4 bg-white border-r-2">
       <NavLink to="/" className={({ isActive }) => isActive ? 'flex items-center gap-x-2 bg-pink-500 text-white font-bold px-3 py-2 rounded-lg' : 'flex items-center gap-x-2 px-3 py-2'}>
         <img src={logo1} alt="" /> Dashboard
       </NavLink>
@@ -28,8 +28,12 @@ function Sidebar() {
       <NavLink to="/integrations" className={({ isActive }) => isActive ? 'flex items-center gap-x-2 bg-pink-500 text-white font-bold px-3 py-2 rounded-lg' : 'flex items-center gap-x-2 px-3 py-2'}>
         <img src={logo6} alt="" /> Integrations
       </NavLink>
-      <img src={Group} alt="" className="mx-auto mt-4" />
-      <button className="bg-white border border-blue-500 rounded-lg px-10 py-2 mx-auto mt-2">Try now</button>
+      <div className='bg-blue-100 mt-16'>
+          <img src={Group} alt="" className="mx-auto mt-4" />
+          <h2 className='text-black font-bold text-xl text-center'>V2.0 is available</h2>
+      <button className="bg-white border border-blue-500 rounded-lg px-16 py-2 mt-2 ms-2  mb-5">Try now</button>
+      </div>
+    
     </div>
   );
 }
