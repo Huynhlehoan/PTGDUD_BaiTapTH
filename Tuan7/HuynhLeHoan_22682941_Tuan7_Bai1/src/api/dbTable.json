@@ -10,22 +10,21 @@
       "id": "1"
     },
     {
-      "id": "2",
       "customerName": "Carlos Garcia",
       "avatar": "https://res.cloudinary.com/dxfbutjyu/image/upload/v1743782850/Avatar_4_sqnlgt.png",
       "company": "SmoozeShift",
-      "orderValue": 747,
+      "orderValue": "600",
       "orderDate": "24/07/2023",
-      "status": "New"
+      "status": "New",
+      "id": "2"
     },
     {
-      "id": "3",
       "customerName": "Elizabeth Bailey",
-      "avatar": "https://res.cloudinary.com/dxfbutjyu/image/upload/v1743782849/Avatar_5_zifhoi.png",
       "company": "Prime Time Telecom",
-      "orderValue": 564,
+      "orderValue": "567",
       "orderDate": "08/08/2023",
-      "status": "In-progress"
+      "status": "In-progress",
+      "id": "3"
     },
     {
       "id": "4",

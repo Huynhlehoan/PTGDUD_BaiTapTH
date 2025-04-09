@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden; 
+}
+* {
+  box-sizing: border-box;
+}
 .container {
   display: grid;
   grid-template-areas:
@@ -9,6 +19,7 @@
     "menu content"
     "footer footer";
   grid-template-columns: 250px 3.5fr;
+  width: 100%;
   gap: 5px;
 
   padding: 5px;
@@ -16,6 +27,7 @@
 .container > div {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
+  width: 100%;
 }
 .container > div.header {
   grid-area: header;

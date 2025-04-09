@@ -4,6 +4,7 @@ import btnEdit from '../assets/Lab_05/create.png'
 
 function CustomDataTable({ data, onEdit }) {
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedUser, setSelectedUser] = useState(null);
   const rowsPerPage = 6;
   
   const columns = [
@@ -72,6 +73,7 @@ function CustomDataTable({ data, onEdit }) {
         color: "#6b7280",
         fontWeight: 600,
         fontSize: "13px",
+        fontWeight: "bold",
         textTransform: "uppercase",
         paddingLeft: "16px",
         paddingRight: "16px",
@@ -87,46 +89,44 @@ function CustomDataTable({ data, onEdit }) {
     },
     pagination: {
       style: {
-        display: "none", // Hide default pagination component
+        display: "none", 
       },
     },
   };
 
-  // Calculate total pages
+ 
   const totalPages = Math.ceil(data.length / rowsPerPage);
   
-  // Function to handle page change
+
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
     }
   };
 
-  // Pagination logic
+
   const paginatedData = data.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
 
-  // Generate page numbers for display
+
   const getPageNumbers = () => {
     let pages = [];
     
-    // Always include first page and current page
+
     pages.push(1);
     
-    // Add pages around current page
+
     for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
       if (!pages.includes(i)) pages.push(i);
     }
     
-    // Always include last page if there is more than one page
+
     if (totalPages > 1) pages.push(totalPages);
     
-    // Sort and remove duplicates
     pages = [...new Set(pages)].sort((a, b) => a - b);
-    
-    // Add ellipses where needed
+
     const result = [];
     let previousPage = 0;
     
@@ -151,6 +151,9 @@ function CustomDataTable({ data, onEdit }) {
         pagination={false}
         customStyles={customStyles}
         noDataComponent="Không có dữ liệu để hiển thị"
+        selectableRows
+        onSelectedRowsChange={({ selectedRows }) => console.log(selectedRows)}
+
       />
       <div className="flex justify-between items-center px-4 py-3 text-sm text-gray-500 border-t border-gray-200">
         <div>{`${data.length} results`}</div>

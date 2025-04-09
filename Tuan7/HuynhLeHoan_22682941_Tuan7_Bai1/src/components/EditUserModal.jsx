@@ -5,6 +5,7 @@ import axios from 'axios';
 const EditUserModal = ({ isOpen, onClose, user, onUpdate }) => {
   const [form, setForm] = useState({
     customerName: '',
+    avatar:'',
     company: '',
     orderValue: '',
     orderDate: '',
@@ -15,6 +16,7 @@ const EditUserModal = ({ isOpen, onClose, user, onUpdate }) => {
     if (user) {
       setForm({
         customerName: user.customerName,
+        avatar: user.avatar,
         company: user.company,
         orderValue: user.orderValue,
         orderDate: user.orderDate,
