@@ -1,4 +1,5 @@
 import Header from './components/Header'
+import RecipeSections from './components/RecipeSections'
 import './App.css'
 
 function App() {
@@ -42,6 +43,8 @@ function App() {
             />
           </div>
         </div>
+
+        <RecipeSections />
       </main>
     </>
   )
