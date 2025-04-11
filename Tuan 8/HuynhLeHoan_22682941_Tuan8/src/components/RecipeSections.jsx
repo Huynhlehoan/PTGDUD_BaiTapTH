@@ -113,8 +113,8 @@ function RecipeSections() {
     <div className="space-y-16">
       {/* Summer Recipes Section */}
       <section>
-        <h2 className="text-2xl font-bold mb-2">This Summer Recipes</h2>
-        <p className="text-gray-600 mb-8">We have all your Independence Day sweets covered</p>
+        <h2 className="text-2xl font-bold text-pink-500 text-center mb-2">This Summer Recipes</h2>
+        <p className="text-gray-600 mb-8 text-center">We have all your Independence Day sweets covered</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {summerRecipes.map((recipe) => (
             <div key={recipe.id} className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -130,8 +130,8 @@ function RecipeSections() {
 
       {/* Recipes With Videos Section */}
       <section>
-        <h2 className="text-2xl font-bold mb-2">Recipes With Videos</h2>
-        <p className="text-gray-600 mb-8">Cooking Up Culinary Creations with Step-by-Step Videos</p>
+        <h2 className="text-2xl font-bold mb-2 text-center text-pink-500">Recipes With Videos</h2>
+        <p className="text-gray-600 mb-8 text-center">Cooking Up Culinary Creations with Step-by-Step Videos</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {videoRecipes.map((recipe) => (
             <div key={recipe.id} className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -156,8 +156,8 @@ function RecipeSections() {
 
       {/* Editor's Pick Section */}
       <section>
-        <h2 className="text-2xl font-bold mb-2">Editor's pick</h2>
-        <p className="text-gray-600 mb-8">Curated Culinary Delights: Handpicked Favorites by Our Expert Editors!</p>
+        <h2 className="text-2xl font-bold mb-2 text-pink-500 text-center">Editor's pick</h2>
+        <p className="text-gray-600 mb-8 text-center">Curated Culinary Delights: Handpicked Favorites by Our Expert Editors!</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {editorsPicks.map((recipe) => (
             <div key={recipe.id} className="bg-white rounded-lg shadow-md overflow-hidden flex">
