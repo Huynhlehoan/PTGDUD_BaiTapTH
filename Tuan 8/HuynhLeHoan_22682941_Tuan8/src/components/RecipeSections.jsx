@@ -113,8 +113,8 @@ function RecipeSections() {
     <div className="space-y-16">
       {/* Summer Recipes Section */}
       <section>
-        <h2 className="text-2xl font-bold text-center mb-2">This Summer Recipes</h2>
-        <p className="text-gray-600 text-center mb-8">We have all your Independence Day sweets covered</p>
+        <h2 className="text-2xl font-bold mb-2">This Summer Recipes</h2>
+        <p className="text-gray-600 mb-8">We have all your Independence Day sweets covered</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {summerRecipes.map((recipe) => (
             <div key={recipe.id} className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -130,8 +130,8 @@ function RecipeSections() {
 
       {/* Recipes With Videos Section */}
       <section>
-        <h2 className="text-2xl font-bold text-center mb-2">Recipes With Videos</h2>
-        <p className="text-gray-600 text-center mb-8">Cooking Up Culinary Creations with Step-by-Step Videos</p>
+        <h2 className="text-2xl font-bold mb-2">Recipes With Videos</h2>
+        <p className="text-gray-600 mb-8">Cooking Up Culinary Creations with Step-by-Step Videos</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {videoRecipes.map((recipe) => (
             <div key={recipe.id} className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -156,15 +156,15 @@ function RecipeSections() {
 
       {/* Editor's Pick Section */}
       <section>
-        <h2 className="text-2xl font-bold text-center mb-2">Editor's pick</h2>
-        <p className="text-gray-600 text-center mb-8">Curated Culinary Delights: Handpicked Favorites by Our Expert Editors!</p>
+        <h2 className="text-2xl font-bold mb-2">Editor's pick</h2>
+        <p className="text-gray-600 mb-8">Curated Culinary Delights: Handpicked Favorites by Our Expert Editors!</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {editorsPicks.map((recipe) => (
             <div key={recipe.id} className="bg-white rounded-lg shadow-md overflow-hidden flex">
               <img src={recipe.image} alt={recipe.title} className="w-1/3 object-cover" />
               <div className="p-4 flex-1">
                 <h3 className="font-medium text-gray-900 mb-2">{recipe.title}</h3>
-                <div className="flex items-center mb-2">
+                <div className="flex mb-2">
                   <img src={recipe.author.avatar} alt={recipe.author.name} className="w-8 h-8 rounded-full mr-2" />
                   <span className="text-sm text-gray-600">{recipe.author.name}</span>
                 </div>

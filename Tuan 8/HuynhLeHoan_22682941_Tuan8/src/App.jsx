@@ -1,12 +1,13 @@
 import Header from './components/Header'
 import RecipeSections from './components/RecipeSections'
+import Footer from './components/Footer'
 import './App.css'
 
 function App() {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="pt-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <main className="flex-grow pt-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="relative mb-16">
           <div className="bg-white rounded-xl shadow-lg p-6 max-w-md">
             <div className="absolute -top-3 left-6 bg-yellow-400 px-4 py-1 rounded-full text-sm font-medium">
@@ -46,7 +47,8 @@ function App() {
 
         <RecipeSections />
       </main>
-    </>
+      <Footer />
+    </div>
   )
 }
 
