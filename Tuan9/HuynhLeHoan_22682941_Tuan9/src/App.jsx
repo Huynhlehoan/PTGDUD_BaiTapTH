@@ -1,29 +1,18 @@
-import { act, useReducer, useState } from 'react'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { increment, decrement } from './store/counterSlice';
 
-import './App.css'
- const reducer= (state,action) =>{
-    switch(action.type){
-      case '+' :
-        {
-          return {count: state.count+1};
-        }
-        case '-': {
-          return {count: state.count-1};
-        }
-        default : 
-        return state;
-    }
-  };
 function App() {
-      const [state,dispatch]= useReducer(reducer,{count:0});
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.counter.value);
+
   return (
-   <div>
-    <p>Count: {state.count}</p>
-    <button onClick={()=>dispatch({type:"-"})}>Click -</button>
-    <button onClick={()=>dispatch({type:"+"})}>Click +</button>
-   
-   </div>
-  )
+    <div className="App">
+      <h1>Counter: {count}</h1>
+      <button onClick={() => dispatch(increment())}>+</button>
+      <button onClick={() => dispatch(decrement())}>-</button>
+    </div>
+  );
 }
 
-export default App
+export default App;
