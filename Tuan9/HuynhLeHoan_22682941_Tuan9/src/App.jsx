@@ -13,6 +13,9 @@ import ThemeApp from './themeApp/ThemeApp'
 import storeCartApp from './CartApp/store'
 import CartApp from './CartApp/CartApp'
 
+import storeAuthApp from './AuthApp/store'
+import AuthApp from './AuthApp/AuthApp'
+
 
 function App() {
   return (
@@ -38,6 +41,12 @@ function App() {
       <Provider store={storeCartApp}>
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
           <CartApp />
+        </div>
+      </Provider>
+
+      <Provider store={storeAuthApp}>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+          <AuthApp />
         </div>
       </Provider>
     </div>
