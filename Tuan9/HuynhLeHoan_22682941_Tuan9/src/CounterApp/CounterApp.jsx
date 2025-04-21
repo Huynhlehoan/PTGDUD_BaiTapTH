@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
+
 import { incrementAsync, decrement } from './counterSlice'
 
 export default function CounterAppAsync() {
   const dispatch = useDispatch()
+
   const { value, loading } = useSelector((state) => state.counter)
 
   return (

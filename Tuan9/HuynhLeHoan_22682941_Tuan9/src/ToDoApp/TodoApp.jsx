@@ -1,24 +1,25 @@
-import { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { addTodo, toggleTodo, removeTodo } from './todoSlice'
+import { useState, useEffect } from 'react'
 
-function TodoApp() {
-  const todos = useSelector((state) => state.todos)
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchTodos, toggleTodo, removeTodo } from './todoSlice'
+
+export default function ToDoAppAsync() {
   const dispatch = useDispatch()
+  const { todos, loading } = useSelector((state) => state.todos)
   const [text, setText] = useState('')
-
+  useEffect(() => {
+    dispatch(fetchTodos())
+  }, [dispatch])
   const handleAdd = () => {
     if (text.trim() !== '') {
       dispatch(addTodo(text))
       setText('')
     }
   }
-
   return (
-    <div className="p-6 rounded-xl bg-pink-300 shadow-md w-full max-w-md mt-10">
-      <h2 className="text-xl font-bold mb-4">To-Do List</h2>
-      <div className="flex gap-2 mb-4">
-        <input
+    <div className="flex flex-col items-center gap-4 p-6 rounded-xl shadow-md bg-pink-300 mt-10">
+      <h1 className="text-2xl font-bold">To-do App (Async)</h1>
+      <div className='flex items-center gap-4'> <input
           className="flex-grow bg-white border border-gray-300 rounded px-3 py-2"
           value={text}
           onChange={(e) => setText(e.target.value)}
@@ -27,26 +28,24 @@ function TodoApp() {
         <button
           className="text-red px-4 py-2 rounded bg-pink-500 hover:bg-gray-300"
           onClick={handleAdd}
-        >
-          Thêm
-        </button>
-      </div>
-      <ul>
-        {todos.map((todo) => (
+        >Thêm
+        </button></div>
+     
+      {loading && <p className="text-gray-500">Đang tải danh sách...</p>}
+
+      <ul className="w-full max-w-md">
+        {todos.map(todo => (
           <li
             key={todo.id}
-            className="flex justify-between items-center py-5 border-b"
+            className={`flex justify-between items-center p-2 border-b ${
+              todo.completed ? 'line-through text-gray-500' : ''
+            }`}
           >
-            <span
-              onClick={() => dispatch(toggleTodo(todo.id))}
-              className={`cursor-pointer ${
-                todo.completed ? 'line-through text-gray-400 bg-white' : ''
-              }`}
-            >
-              {todo.text}
+            <span onClick={() => dispatch(toggleTodo(todo.id))} className="cursor-pointer">
+              {todo.title}
             </span>
             <button
-              className="text-red-500 hover:text-red-700"
+              className="text-red-500 border border-2 rounded-2xl px-2 py-1.5 hover:underline"
               onClick={() => dispatch(removeTodo(todo.id))}
             >
               X
@@ -57,5 +56,3 @@ function TodoApp() {
     </div>
   )
 }
-
-export default TodoApp
