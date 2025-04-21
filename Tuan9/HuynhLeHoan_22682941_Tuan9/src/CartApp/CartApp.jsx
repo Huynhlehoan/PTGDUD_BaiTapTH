@@ -1,71 +1,77 @@
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addItem, removeItem, updateQuantity } from './cartSlice'
+import { fetchProducts, addItem, removeItem, updateQuantity  } from './cartSlice'
 
-function CartApp() {
+export default function CartAppAsync() {
   const dispatch = useDispatch()
-  const cartItems = useSelector((state) => state.cart.cartItems)
+  const { products, cartItems, loading } = useSelector(state => state.cart)
 
-  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0)
-  const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  useEffect(() => {
+    dispatch(fetchProducts())
+  }, [dispatch])
 
-  const handleAdd = () => {
-    dispatch(addItem({ id: 1, name: 'Sản phẩm A', price: 100, quantity: 1 }))
-  }
+  const total = cartItems.reduce((sum, item) => sum + item.quantity * item.price, 0)
 
   return (
-    <div className="p-6 rounded-xl shadow-md bg-green-200 max-w-xl w-full">
-      <h2 className="text-xl text-center font-bold mb-4">Giỏ hàng 🛒</h2>
-      <button
-        className="px-4 py-2 text-white bg-green-600 text-red-500 rounded hover:bg-gray-400 mb-4"
-        onClick={handleAdd}
-      >
-        Thêm SP A
-      </button>
-      <button
-        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ml-2"
-        onClick={() => dispatch(addItem({ id: 2, name: 'Sản phẩm B', price: 150, quantity: 1 }))}
-       >
-        Thêm SP B
-    </button>
+    <div className="p-6 mt-10 rounded-xl shadow-md bg-green-200 w-[500px] mx-auto">
+      <h1 className="text-2xl text-center font-bold mb-4">🛒 Giỏ hàng (Async)</h1>
 
-      {cartItems.map((item) => (
-        <div key={item.id} className="flex justify-between items-center mb-2 border-b pb-2">
-          <div>
-            <p className="font-semibold">{item.name}</p>
-            <p>{item.price}đ x {item.quantity}</p>
-          </div>
-          <div className="flex gap-2">
+      {loading ? <p>Đang tải sản phẩm...</p> : (
+        <div className="mb-4 space-y-2">
+          <h2 className="text-lg font-semibold">Chọn sản phẩm:</h2>
+          {products.map(p => (
             <button
-              className="bg-yellow-400 text-black px-2 rounded"
-              onClick={() => dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }))}
+              key={p.id}
+              onClick={() => dispatch(addItem(p))}
+              className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 ml-5"
             >
-              +
+              Thêm {p.name}
             </button>
-            <button
-              className="bg-yellow-400 text-black px-2 rounded"
-              onClick={() =>
-                item.quantity > 1
-                  ? dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }))
-                  : dispatch(removeItem(item.id))
-              }
-            >
-              -
-            </button>
-            <button
-              className=" text-red-500 px-2 rounded"
-              onClick={() => dispatch(removeItem(item.id))}
-            >
-              X
-            </button>
-          </div>
+          ))}
         </div>
-      ))}
+      )}
 
-      <hr className="my-4" />
-      <p>Tổng số lượng: <strong>{totalQuantity}</strong></p>
-      <p>Tổng tiền: <strong>{totalPrice}đ</strong></p>
+      <div className="mt-4">
+        <h2 className="text-lg font-semibold">Sản phẩm đã chọn:</h2>
+        {cartItems.length === 0 && <p className="text-gray-500">Chưa có sản phẩm nào</p>}
+        {cartItems.map(item => (
+  <div key={item.id} className="flex justify-between items-center border-b py-2">
+    <div className="flex flex-col gap-1">
+      <span>{item.name} x {item.quantity}</span>
+      <div className="flex gap-2">
+        <button
+          className="bg-yellow-400 text-black px-2 rounded"
+          onClick={() => dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }))}
+        >
+          +
+        </button>
+        <button
+          className="bg-yellow-400 text-black px-2 rounded"
+          onClick={() =>
+            item.quantity > 1
+              ? dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }))
+              : dispatch(removeItem(item.id))
+          }
+        >
+          -
+        </button>
+      </div>
+    </div>
+        <button
+          onClick={() => dispatch(removeItem(item.id))}
+          className="text-red-500 hover:underline"
+        >
+          Xoá
+        </button>
+      </div>
+    ))}
+
+        {cartItems.length > 0 && (
+          <div className="mt-4 font-semibold">
+            Tổng tiền: {total}đ
+          </div>
+        )}
+      </div>
     </div>
   )
 }
-
-export default CartApp

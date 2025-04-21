@@ -39,13 +39,13 @@ function App() {
       </Provider>
 
       <Provider store={storeCartApp}>
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <div className="flex flex-col items-center justify-center min-h-screen ">
           <CartApp />
         </div>
       </Provider>
 
       <Provider store={storeAuthApp}>
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <div className="flex flex-col items-center justify-center min-h-screen ">
           <AuthApp />
         </div>
       </Provider>
