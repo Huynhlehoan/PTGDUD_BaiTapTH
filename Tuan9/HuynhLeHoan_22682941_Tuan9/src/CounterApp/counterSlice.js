@@ -1,19 +1,35 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-// Tạo slice cho counter
+export const incrementAsync = createAsyncThunk(
+  'counter/incrementAsync',
+  async () => {
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    return 1
+  }
+)
+
 const counterSlice = createSlice({
   name: 'counter',
-  initialState: { value: 0 }, // Giá trị ban đầu
+  initialState: {
+    value: 0,
+    loading: false,
+  },
   reducers: {
-    increment: (state) => {
-      state.value += 1; // Tăng 1
-    },
     decrement: (state) => {
-      state.value -= 1; // Giảm 1
+      state.value -= 1
     },
   },
-});
+  extraReducers: (builder) => {
+    builder
+      .addCase(incrementAsync.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(incrementAsync.fulfilled, (state, action) => {
+        state.value += action.payload
+        state.loading = false
+      })
+  }
+})
 
-// Export các action và reducer
-export const { increment, decrement } = counterSlice.actions;
-export default counterSlice.reducer;
+export const { decrement } = counterSlice.actions
+export default counterSlice.reducer
