@@ -1,16 +1,33 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+
+export const toggleThemeAsync = createAsyncThunk(
+  'theme/toggleAsync',
+  async (currentTheme) => {
+    await new Promise(resolve => setTimeout(resolve, 1000)) 
+    return currentTheme === 'light' ? 'dark' : 'light'
+  }
+)
 
 const themeSlice = createSlice({
   name: 'theme',
   initialState: {
     mode: 'light',
+    loading: false
   },
-  reducers: {
-    toggleTheme: (state) => {
-      state.mode = state.mode === 'light' ? 'dark' : 'light'
-    },
-  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(toggleThemeAsync.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(toggleThemeAsync.fulfilled, (state, action) => {
+        state.mode = action.payload
+        state.loading = false
+      })
+      .addCase(toggleThemeAsync.rejected, (state) => {
+        state.loading = false
+      })
+  }
 })
 
-export const { toggleTheme } = themeSlice.actions
 export default themeSlice.reducer

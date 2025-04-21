@@ -1,25 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleTheme } from './themeSlice'
+import { toggleThemeAsync } from './themeSlice'
 
-function ThemeApp() {
-  const mode = useSelector((state) => state.theme.mode)
+export default function ThemeToggleAsync() {
   const dispatch = useDispatch()
+  const { mode, loading } = useSelector(state => state.theme)
 
-  const themeClass =
-    mode === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-black'
+  const handleToggle = () => {
+    dispatch(toggleThemeAsync(mode))
+  }
 
   return (
-    <div className={`p-6  rounded-xl shadow-md w-full max-w-md ${themeClass}`}>
-      <h2 className="text-xl font-bold mb-4">Toggle Theme</h2>
-      <p className="mb-4">Hiện tại: {mode === 'dark' ? '🌙 Dark' : '☀️ Light'}</p>
+    <div className={`p-6 rounded-xl shadow-md ${mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+      <h1 className="text-2xl font-bold mb-4">Theme Toggle (Async)</h1>
+      <p>Chế độ hiện tại: <strong>{mode.toUpperCase()}</strong></p>
       <button
-        className="px-4 py-2  rounded border border-2 hover:bg-amber-200 ml-20"
-        onClick={() => dispatch(toggleTheme())}
+        onClick={handleToggle}
+        className="mt-4 px-4 py-2 rounded bg-indigo-500 text-white hover:bg-indigo-600"
       >
-        Đổi Theme
+        {loading ? 'Đang đổi theme...' : 'Chuyển Theme'}
       </button>
     </div>
   )
 }
-
-export default ThemeApp
