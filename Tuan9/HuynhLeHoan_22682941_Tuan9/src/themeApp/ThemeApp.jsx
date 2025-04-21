@@ -13,7 +13,7 @@ function ThemeApp() {
       <h2 className="text-xl font-bold mb-4">Toggle Theme</h2>
       <p className="mb-4">Hiện tại: {mode === 'dark' ? '🌙 Dark' : '☀️ Light'}</p>
       <button
-        className="px-4 py-2 text-red-400 rounded  hover:bg-indigo-600"
+        className="px-4 py-2  rounded border border-2 hover:bg-amber-200 ml-20"
         onClick={() => dispatch(toggleTheme())}
       >
         Đổi Theme

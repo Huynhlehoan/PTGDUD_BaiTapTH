@@ -8,18 +8,18 @@ function CounterApp() {
   const dispatch = useDispatch()
 
   return (
-    <div className="flex flex-col items-center gap-4 p-6 rounded-xl shadow-md bg-blue-500">
+    <div className="flex flex-col items-center gap-4 p-6 rounded-xl shadow-md bg-gray-300">
       <h1 className="text-2xl font-bold">Counter App</h1>
       <p className="text-xl">{count}</p>
       <div className="flex gap-4">
         <button
-          className="bg-pink-500  px-4 py-2 rounded hover:bg-blue-600"
+          className="bg-blue-500  px-4 py-2 rounded hover:bg-blue-300"
           onClick={() => dispatch(increment())}
         >
           Tăng
         </button>
         <button
-          className="bg-red-500  px-4 py-2 rounded hover:bg-red-600"
+          className="bg-pink-400  px-4 py-2 rounded hover:bg-pink-200"
           onClick={() => dispatch(decrement())}
         >
           Giảm

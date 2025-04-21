@@ -25,7 +25,7 @@ function TodoApp() {
           placeholder="Nhập công việc..."
         />
         <button
-          className="text-red px-4 py-2 rounded hover:bg-green-600"
+          className="text-red px-4 py-2 rounded bg-pink-500 hover:bg-gray-300"
           onClick={handleAdd}
         >
           Thêm
