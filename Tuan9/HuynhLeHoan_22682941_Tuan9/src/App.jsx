@@ -1,18 +1,16 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { increment, decrement } from './store/counterSlice';
+import './App.css'
+import { Provider } from 'react-redux'
+import { store } from './CounterApp/index'
+import CounterApp from './CounterApp/CounterApp'
 
 function App() {
-  const dispatch = useDispatch();
-  const count = useSelector((state) => state.counter.value);
-
   return (
-    <div className="App">
-      <h1>Counter: {count}</h1>
-      <button onClick={() => dispatch(increment())}>+</button>
-      <button onClick={() => dispatch(decrement())}>-</button>
-    </div>
-  );
+    <Provider store={store}>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <CounterApp />
+      </div>
+    </Provider>
+  )
 }
 
-export default App;
+export default App
