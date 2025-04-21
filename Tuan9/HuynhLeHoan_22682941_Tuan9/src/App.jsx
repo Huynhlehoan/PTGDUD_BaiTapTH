@@ -7,6 +7,9 @@ import CounterApp from './CounterApp/CounterApp'
 import { storeToDoApp } from './ToDoApp/store'
 import TodoApp from './ToDoApp/TodoApp'
 
+import storeThemeApp from './themeApp/store'
+import ThemeApp from './themeApp/ThemeApp'
+
 function App() {
   return (
     <>
@@ -19,6 +22,12 @@ function App() {
       <Provider store={storeToDoApp}>
         <div className="flex flex-col items-center justify-center min-h-screen">
           <TodoApp />
+        </div>
+      </Provider>
+
+      <Provider store={storeThemeApp}>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+          <ThemeApp />
         </div>
       </Provider>
     </>
